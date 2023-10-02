@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SignUpController">
+    <children>
+        <AnchorPane prefHeight="400.0" prefWidth="200.0" style="-fx-background-color: #4c00b0;">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@increase.png" />
+                    </image></ImageView>
+                <Label layoutX="5.0" layoutY="99.0" prefHeight="391.0" prefWidth="190.0" text="Headstart to Invest Smart!" textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="-90.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="99.0">
+                    <font>
+                        <Font name="Comic Sans MS Bold Italic" size="20.0" />
+                    </font></Label>
+            </children></AnchorPane>
+        <AnchorPane prefHeight="400.0" prefWidth="400.0">
+            <children>
+                <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="156.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@user.png" />
+                    </image></ImageView>
+                <Label layoutX="144.0" layoutY="143.0" text="Setup Profile:">
+                    <font>
+                        <Font name="Calibri Italic" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="24.0" layoutY="177.0" text="Username:">
+                    <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                    </font></Label>
+                <Label layoutX="24.0" layoutY="217.0" text="Password:">
+                    <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="24.0" layoutY="257.0" text="Age:">
+                    <font>
+                        <Font name="Calibri Bold" size="20.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="tf_user_name" layoutX="138.0" layoutY="176.0" prefHeight="25.0" prefWidth="190.0">
+                    <font>
+                        <Font name="Calibri" size="14.0" />
+                    </font></TextField>
+                <TextField fx:id="tf_pass_word" layoutX="138.0" layoutY="215.0" prefHeight="25.0" prefWidth="190.0">
+                    <font>
+                        <Font name="Calibri" size="14.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="tf_age" layoutX="138.0" layoutY="255.0" prefHeight="25.0" prefWidth="190.0">
+                    <font>
+                        <Font name="Calibri" size="14.0" />
+                    </font>
+                </TextField>
+                <Button fx:id="button_sign_up" layoutX="153.0" layoutY="307.0" mnemonicParsing="false" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Sign-Up" textFill="WHITE">
+                    <font>
+                        <Font name="Calibri" size="18.0" />
+                    </font></Button>
+                <Label layoutX="139.0" layoutY="102.0" text="Welcome!">
+                    <font>
+                        <Font name="Comic Sans MS Italic" size="24.0" />
+                    </font>
+                </Label>
+                <Label layoutX="129.0" layoutY="369.0" text="A user already?">
+                    <font>
+                        <Font name="Calibri Italic" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="button_log_in" layoutX="217.0" layoutY="364.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Login" textFill="#4c00b0" underline="true">
+                    <font>
+                        <Font name="Calibri Bold Italic" size="14.0" />
+                    </font></Button>
+            </children></AnchorPane>
+    </children>
+</HBox>
