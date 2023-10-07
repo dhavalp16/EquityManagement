@@ -4,27 +4,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #4c00b0;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogoutController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogoutController">
     <children>
-        <AnchorPane prefHeight="400.0" prefWidth="15.0" style="-fx-background-color: #4c00b0;" />
-        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="570.0" style="-fx-background-color: #ffffff;">
+        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="572.0" style="-fx-border-color: #4c00b0; -fx-border-width: 10;">
             <children>
-                <AnchorPane prefHeight="15.0" prefWidth="570.0" style="-fx-background-color: #4c00b0;" />
-                <AnchorPane layoutY="385.0" prefHeight="15.0" prefWidth="570.0" style="-fx-background-color: #4c00b0;" />
-                <Label layoutX="119.0" layoutY="-30.0" prefHeight="400.0" prefWidth="540.0" text="Are you sure you want to logout?" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="-119.0" AnchorPane.topAnchor="-30.0">
-                    <font>
-                        <Font name="Calibri Bold Italic" size="24.0" />
-                    </font></Label>
-                <Button fx:id="button_back" layoutX="189.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #dddddd; -fx-cursor: hand;" text="No">
+                <Button fx:id="button_back" layoutX="100.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #dddddd; -fx-cursor: hand;" text="No">
                     <font>
                         <Font name="Calibri" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_log_out" layoutX="301.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Yes" textFill="WHITE">
+                <Button fx:id="button_log_out" layoutX="230.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Yes" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="14.0" />
                     </font>
                 </Button>
+            <Label layoutX="48.0" layoutY="99.0" text="Are you sure you want to logout?">
+               <font>
+                  <Font name="Calibri Bold Italic" size="22.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
     </children>
