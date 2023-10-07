@@ -5,45 +5,46 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoggedinController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-border-color: #4c00b0; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LoggedinController">
     <children>
-        <AnchorPane prefHeight="400.0" prefWidth="125.0" style="-fx-background-color: #4c00b0;">
+        <AnchorPane prefHeight="596.0" prefWidth="130.0" style="-fx-background-color: #4c00b0;">
             <children>
-                <Button fx:id="button_home" layoutX="25.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Home" textFill="WHITE">
+                <Button fx:id="button_home" alignment="TOP_RIGHT" layoutY="34.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Home" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <font>
-                        <Font name="Calibri Bold Italic" size="18.0" />
+                        <Font name="Calibri Bold Italic" size="22.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_calculator" layoutX="12.0" layoutY="48.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Calculator" textFill="WHITE">
+                <Button fx:id="button_calculator" alignment="TOP_RIGHT" layoutY="74.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Calculator" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <font>
-                        <Font name="Calibri Bold Italic" size="18.0" />
+                        <Font name="Calibri Bold Italic" size="22.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_account" layoutX="20.0" layoutY="82.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Account" textFill="WHITE">
+                <Button fx:id="button_account" alignment="TOP_RIGHT" layoutY="114.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Profile" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <font>
-                        <Font name="Calibri Bold Italic" size="18.0" />
+                        <Font name="Calibri Bold Italic" size="22.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_logout" layoutX="21.0" layoutY="116.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Logout" textFill="WHITE">
+                <Button fx:id="button_logout" alignment="TOP_RIGHT" layoutY="154.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Logout" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <font>
-                        <Font name="Calibri Bold Italic" size="18.0" />
+                        <Font name="Calibri Bold Italic" size="22.0" />
                     </font>
                 </Button>
             </children>
         </AnchorPane>
-        <AnchorPane prefHeight="400.0" prefWidth="478.0">
+        <AnchorPane prefHeight="600.0" prefWidth="771.0">
             <children>
-                <Label fx:id="label_welcome" layoutX="155.0" layoutY="29.0" text="Welcome Back!">
+                <Label fx:id="label_welcome" layoutX="295.0" layoutY="34.0" text="Welcome Back!">
                     <font>
-                        <Font name="Comic Sans MS" size="24.0" />
+                        <Font name="Comic Sans MS" size="26.0" />
                     </font>
                 </Label>
-                <TableView layoutX="26.0" layoutY="117.0" prefHeight="260.0" prefWidth="425.0">
+                <TableView layoutX="25.0" layoutY="116.0" prefHeight="470.0" prefWidth="720.0">
                     <columns>
-                        <TableColumn fx:id="tb_srno" prefWidth="53.0" text="Sr. No." />
-                        <TableColumn fx:id="tb_name" prefWidth="194.0" text="Name" />
-                        <TableColumn fx:id="tb_amt" prefWidth="115.0" text="Amount Invested" />
-                        <TableColumn fx:id="tb_edit" prefWidth="67.0" text="Edit" />
+                        <TableColumn fx:id="tb_srno" prefWidth="55.0" text="Sr. No." />
+                        <TableColumn fx:id="tb_name" prefWidth="350.0" text="Name" />
+                        <TableColumn fx:id="tb_amt" prefWidth="120.0" text="Amount Invested" />
+                  <TableColumn prefWidth="120.0" text="Category" />
+                        <TableColumn fx:id="tb_edit" prefWidth="75.0" text="Edit" />
                     </columns>
                 </TableView>
                 <Button fx:id="button_add" layoutX="27.0" layoutY="70.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="41.0" style="-fx-background-color: transparent; -fx-cursor: hand;">
