@@ -48,4 +48,3 @@ public class SignUpController implements Initializable {
         });
     }
 }
-
