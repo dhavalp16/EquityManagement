@@ -2,28 +2,27 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogoutController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #ffffff; -fx-border-color: #4c00b0; -fx-border-width: 10px;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.LogoutController">
     <children>
-        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="572.0" style="-fx-border-color: #4c00b0; -fx-border-width: 10;">
+        <AnchorPane prefHeight="579.0" prefWidth="883.0">
             <children>
-                <Button fx:id="button_back" layoutX="100.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #dddddd; -fx-cursor: hand;" text="No">
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="531.0" layoutX="22.0" layoutY="24.0" stroke="BLACK" strokeType="INSIDE" width="835.0" />
+                <Label layoutX="274.0" layoutY="203.0" prefHeight="39.0" prefWidth="332.0" text="Do you want to Logout?">
                     <font>
-                        <Font name="Calibri" size="14.0" />
+                        <Font name="Comic Sans MS Bold Italic" size="28.0" />
+                    </font></Label>
+                <Button fx:id="button_log_out" layoutX="274.0" layoutY="290.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #4c00b0;" text="Yes" textFill="WHITE">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="18.0" />
+                    </font></Button>
+                <Button fx:id="button_back" layoutX="476.0" layoutY="290.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #4c00b0;" text="No" textFill="#4c00b0">
+                    <font>
+                        <Font name="Comic Sans MS Bold Italic" size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_log_out" layoutX="230.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="69.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Yes" textFill="WHITE">
-                    <font>
-                        <Font name="Calibri" size="14.0" />
-                    </font>
-                </Button>
-            <Label layoutX="48.0" layoutY="99.0" text="Are you sure you want to logout?">
-               <font>
-                  <Font name="Calibri Bold Italic" size="22.0" />
-               </font>
-            </Label>
-            </children>
-        </AnchorPane>
+            </children></AnchorPane>
     </children>
 </HBox>
