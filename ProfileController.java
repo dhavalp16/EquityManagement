@@ -1,6 +1,6 @@
 package com.example.demo;
 
-
+import com.example.demo.LoggedinController.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -19,7 +19,6 @@ public class ProfileController implements Initializable {
 
     @FXML
     private Button btn_back;
-
     @FXML
     private Label label_pf_name;
     @FXML
@@ -27,7 +26,7 @@ public class ProfileController implements Initializable {
     @FXML
     private Button btn_acc_delete;
 
-
+    public String y;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_back.setOnAction(new EventHandler<ActionEvent>() {
@@ -39,7 +38,7 @@ public class ProfileController implements Initializable {
         btn_acc_delete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
+                DBUtils.delAcc(y);
             }
         });
     }

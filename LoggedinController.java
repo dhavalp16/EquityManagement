@@ -10,12 +10,18 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class LoggedinController implements Initializable {
+
+    public void setUserInformation(String username){
+        c = username;
+        label_welcome.setText("Welcome back " + username + "!");
+        listM = getDatausers();
+        table.setItems(listM);
+    }
+
 
     @FXML
     private Button button_home;
@@ -34,13 +40,13 @@ public class LoggedinController implements Initializable {
     @FXML
     private Label label_welcome;
     @FXML
-    private TableView<User> tb_table;
+    private TableView<User> table;
     @FXML
-    private TableColumn<User, Integer> tb_amount;
+    private TableColumn<User, Integer> amount;
     @FXML
-    private TableColumn<User, String> tb_name;
+    private TableColumn<User, String> name;
     @FXML
-    private TableColumn<User, String> tb_category;
+    private TableColumn<User, String> category;
     @FXML
     private TextField tf_equityname;
     @FXML
@@ -53,6 +59,13 @@ public class LoggedinController implements Initializable {
     void Select(ActionEvent event){
          s = comb.getSelectionModel().getSelectedItem().toString();
     }
+
+    ObservableList<User> listM;
+
+    Connection connection = null;
+    ResultSet resultSet = null;
+    PreparedStatement preparedStatement = null;
+
 
 
     @Override
@@ -87,26 +100,52 @@ public class LoggedinController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.addInfo(c, tf_equityname.getText() ,Integer.parseInt(tf_amount.getText()),s);
+                DBUtils.changeScene(event, "Loggedin.fxml", "Home", c);
             }
         });
+
 
         button_delete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
                 DBUtils.delInfo(c, tf_equityname.getText() ,Integer.parseInt(tf_amount.getText()),s);
+                DBUtils.changeScene(event, "Loggedin.fxml", "Home", c);
             }
         });
 
         ObservableList<String> list = FXCollections.observableArrayList("Stocks", "Mutual Funds", "Real Estate", "CryptoCurrency", "Other");
         comb.setItems(list);
 
+        name.setCellValueFactory(new PropertyValueFactory<User, String>("Name"));
+        amount.setCellValueFactory(new PropertyValueFactory<User, Integer>("Amount"));
+        category.setCellValueFactory(new PropertyValueFactory<User, String>("category"));
 
     }
     public String c;
-    public void setUserInformation(String username){
-        c = username;
-        label_welcome.setText("Welcome back " + username + "!");
+    public static Connection connectDB() {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/equiman", "root", "equity");
+            return connection;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
+    public  ObservableList<User> getDatausers(){
 
+        Connection connection = connectDB();
+        ObservableList<User> list = FXCollections.observableArrayList();
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM equity WHERE username = ?");
+            preparedStatement.setString(1,c);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                list.add(new User(resultSet.getString("equity"),Integer.parseInt(resultSet.getString("amount")) ,resultSet.getString("category")));
+            }
+        }catch (SQLException e ){
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

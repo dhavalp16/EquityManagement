@@ -1,24 +1,15 @@
 package com.example.demo;
 
 public class User {
-    int num, amount;
-    String name, type;
+    int  amount;
+    String name, category;
 
-    public User(int num, String name, int amount, String type) {
-        this.num = num;
+    public User( String name, int amount, String category) {
         this.amount = amount;
         this.name = name;
-        this.type = type;
+        this.category = category;
     }
 
-
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
 
     public void setAmount(int amount) {
         this.amount = amount;
@@ -28,9 +19,7 @@ public class User {
         this.name = name;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    public void setCategory(String category) {this.category = category;}
 
     public int getAmount() {
         return amount;
@@ -40,7 +29,7 @@ public class User {
         return name;
     }
 
-    public String getType() {
-        return type;
+    public String getCategory() {
+        return category;
     }
 }
