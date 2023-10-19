@@ -2,8 +2,8 @@ package com.example.demo;
 
 import java.sql.*;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,6 +16,7 @@ import java.io.IOException;
 
 public class DBUtils {
 
+
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String username) {
         Parent root = null;
 
@@ -25,6 +26,7 @@ public class DBUtils {
                 root = loader.load();
                 LoggedinController loggedinController = loader.getController();
                 loggedinController.setUserInformation(username);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -41,30 +43,6 @@ public class DBUtils {
         stage.show();
     }
 
-    public static void changeScene1(ActionEvent event, String fxmlFile, String title, String username) {
-        Parent root = null;
-
-        if (username != null) {
-            try {
-                FXMLLoader loader = new FXMLLoader(DBUtils.class.getResource(fxmlFile));
-                root = loader.load();
-                LoggedinController loggedinController = loader.getController();
-                loggedinController.setUserInformation(username);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-                root = FXMLLoader.load(DBUtils.class.getResource(fxmlFile));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle(title);
-        stage.setScene(new Scene(root, 600, 400));
-        stage.show();
-    }
 
     public static void signUpUser(ActionEvent event, String username, String password, int age) {
         Connection connection = null;
@@ -179,80 +157,143 @@ public class DBUtils {
             }
         }
     }
+    public static void addInfo(String username, String equity, int amount, String category){
 
-    public static Connection ConnectDb() {
         Connection connection = null;
-        PreparedStatement preparedStatement1 = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
+
         try {
+
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/equiman", "root", "equity");
+            preparedStatement = connection.prepareStatement("INSERT INTO equity(username, equity, amount, category) VALUES (? , ? , ?, ?)");
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, equity);
+            preparedStatement.setInt(3, amount);
+            preparedStatement.setString(4,category);
+            preparedStatement.executeUpdate();
 
-            return connection;
-        } catch (SQLException e) {
+        }catch (SQLException e){
+
             e.printStackTrace();
-            return null;
-        } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
 
+        }finally {
+            if(resultSet!=null){
+                try{
+                    resultSet.close();
+                }catch(SQLException e){
+                    e.printStackTrace();
                 }
             }
-            if (preparedStatement != null) {
+            if(preparedStatement!=null){
                 try {
                     preparedStatement.close();
-                } catch (SQLException e) {
+                }catch (SQLException e){
                     e.printStackTrace();
                 }
             }
-            if (connection != null) {
+            if(connection!=null){
                 try {
                     connection.close();
-                } catch (SQLException e) {
+                }catch (SQLException e){
                     e.printStackTrace();
                 }
             }
         }
     }
 
-    public static ObservableList<User> getDataUser(String username) {
-        Connection connection = ConnectDb();
+    public static void delInfo(String username, String equity, int amount, String category){
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        ObservableList<User> list = FXCollections.observableArrayList();
-        try {
-            PreparedStatement preparedStatement1 = connection.prepareStatement("SELECT password FROM user_info WHERE username = ?");
-            preparedStatement1.setString(1, username);
-            int retrievedID = resultSet.getInt("user_id");
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT password FROM investment_info WHERE user_id = ?");
-            preparedStatement1.setInt(1, retrievedID);
-            resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                list.add(new User(Integer.parseInt(resultSet.getString("user_id")), resultSet.getString("name"), Integer.parseInt(resultSet.getString("amount")), resultSet.getString("category")));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            if (resultSet != null) {
-                try {
-                    resultSet.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
 
+        try {
+
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/equiman", "root", "equity");
+            preparedStatement = connection.prepareStatement("DELETE FROM equity WHERE username = ? AND equity = ? AND amount = ? AND category = ?");
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, equity);
+            preparedStatement.setInt(3, amount);
+            preparedStatement.setString(4,category);
+            preparedStatement.executeUpdate();
+
+        }catch (SQLException e){
+
+            e.printStackTrace();
+
+        }finally {
+            if(resultSet!=null){
+                try{
+                    resultSet.close();
+                }catch(SQLException e){
+                    e.printStackTrace();
                 }
             }
-            if (connection != null) {
+            if(preparedStatement!=null){
+                try {
+                    preparedStatement.close();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+            if(connection!=null){
                 try {
                     connection.close();
-                } catch (SQLException e) {
+                }catch (SQLException e){
                     e.printStackTrace();
                 }
             }
         }
-        return list;
     }
+
+    public static void delAcc(String username){
+
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement1 = null;
+        ResultSet resultSet = null;
+
+        try {
+
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/equiman", "root", "equity");
+            preparedStatement = connection.prepareStatement("DELETE FROM user_info WHERE username = ?");
+            preparedStatement1 = connection.prepareStatement("DELETE FROM equity WHERE username = ?");
+            preparedStatement.setString(1, username);
+            preparedStatement1.setString(1, username);
+
+            preparedStatement.executeUpdate();
+
+        }catch (SQLException e){
+
+            e.printStackTrace();
+
+        }finally {
+            if(resultSet!=null){
+                try{
+                    resultSet.close();
+                }catch(SQLException e){
+                    e.printStackTrace();
+                }
+            }
+            if(preparedStatement!=null){
+                try {
+                    preparedStatement.close();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+            if(connection!=null){
+                try {
+                    connection.close();
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
 }
+
+
 

@@ -80,22 +80,22 @@
             </children></AnchorPane>
         <AnchorPane prefHeight="600.0" prefWidth="210.0" style="-fx-border-color: #4c00b0; -fx-border-width: 1;">
             <children>
-                <Label layoutX="12.0" layoutY="25.0" prefHeight="75.0" prefWidth="186.0" style="-fx-border-color: #4c00b0; -fx-border-radius: 5;" text="...Successful investing is about managing risk, not avoiding it..." textAlignment="CENTER" wrapText="true">
+                <Label layoutX="8.0" layoutY="113.0" prefHeight="75.0" prefWidth="195.0" style="-fx-border-color: #4c00b0; -fx-border-radius: 5;" text="...Successful investing is about managing risk, not avoiding it..." textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font name="Comic Sans MS Bold Italic" size="16.0" />
                     </font>
                 </Label>
-                <Label alignment="TOP_RIGHT" layoutX="18.0" layoutY="100.0" prefHeight="21.0" prefWidth="180.0" text="-Benjamin Graham">
+                <Label alignment="TOP_RIGHT" layoutX="18.0" layoutY="188.0" prefHeight="21.0" prefWidth="180.0" text="-Benjamin Graham">
                     <font>
                         <Font name="Comic Sans MS Italic" size="14.0" />
                     </font>
                 </Label>
-                <Label layoutX="12.0" layoutY="143.0" prefHeight="100.0" prefWidth="186.0" style="-fx-border-color: #4c00b0; -fx-border-radius: 5;" text="...Never depend on a single income. Make an investment to create a second source..." textAlignment="CENTER" wrapText="true">
+                <Label layoutX="8.0" layoutY="240.0" prefHeight="100.0" prefWidth="195.0" style="-fx-border-color: #4c00b0; -fx-border-radius: 5;" text="...Never depend on a single income. Make an investment to create a second source..." textAlignment="CENTER" wrapText="true">
                     <font>
                         <Font name="Comic Sans MS Bold Italic" size="16.0" />
                     </font>
                 </Label>
-                <Label alignment="TOP_RIGHT" layoutX="18.0" layoutY="243.0" prefHeight="21.0" prefWidth="180.0" text="-Warren Buffet">
+                <Label alignment="TOP_RIGHT" layoutX="18.0" layoutY="340.0" prefHeight="21.0" prefWidth="180.0" text="-Warren Buffet">
                     <font>
                         <Font name="Comic Sans MS Italic" size="14.0" />
                     </font>

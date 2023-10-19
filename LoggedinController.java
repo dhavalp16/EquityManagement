@@ -1,14 +1,12 @@
 package com.example.demo;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
@@ -30,29 +28,36 @@ public class LoggedinController implements Initializable {
     @FXML
     private Button button_add;
     @FXML
-    private Button button_reload;
+    private Button button_delete;
+    @FXML
+    private Button button_update;
     @FXML
     private Label label_welcome;
     @FXML
-    private TableView<User> table;
+    private TableView<User> tb_table;
     @FXML
-    private TableColumn<User, Integer> amount;
+    private TableColumn<User, Integer> tb_amount;
     @FXML
-    private TableColumn<User, String> name;
+    private TableColumn<User, String> tb_name;
     @FXML
-    private TableColumn<User, String> category;
+    private TableColumn<User, String> tb_category;
     @FXML
-    private TableColumn<User, Integer> num;
+    private TextField tf_equityname;
+    @FXML
+    private TextField tf_amount;
+    @FXML
+    private ComboBox comb;
 
-    ObservableList<User> ListM;
-    int index = -1;
+    public String s;
+    @FXML
+    void Select(ActionEvent event){
+         s = comb.getSelectionModel().getSelectedItem().toString();
+    }
 
-    Connection connection = null;
-    ResultSet resultSet = null;
-    PreparedStatement preparedStatement = null;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         button_logout.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -62,7 +67,7 @@ public class LoggedinController implements Initializable {
         button_home.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "Loggedin.fxml", "Home", null);
+                DBUtils.changeScene(event, "Loggedin.fxml", "Home", c);
             }
         });
         button_calculator.setOnAction(new EventHandler<ActionEvent>() {
@@ -74,7 +79,6 @@ public class LoggedinController implements Initializable {
         button_equity.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
                 DBUtils.changeScene(event,"Profile.fxml","Profile",null);
             }
         });
@@ -82,21 +86,27 @@ public class LoggedinController implements Initializable {
         button_add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
-                DBUtils.changeScene1(event, "InvestmentEntry.fxml", "Home", null);
+                DBUtils.addInfo(c, tf_equityname.getText() ,Integer.parseInt(tf_amount.getText()),s);
             }
         });
 
-        amount.setCellValueFactory((new PropertyValueFactory<User, Integer>("amount")));
-        name.setCellValueFactory((new PropertyValueFactory<User, String>("name")));
-        category.setCellValueFactory((new PropertyValueFactory<User, String>("category")));
+        button_delete.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
 
-        ListM = DBUtils.getDataUser();
-        table.setItems(ListM);
+                DBUtils.delInfo(c, tf_equityname.getText() ,Integer.parseInt(tf_amount.getText()),s);
+            }
+        });
+
+        ObservableList<String> list = FXCollections.observableArrayList("Stocks", "Mutual Funds", "Real Estate", "CryptoCurrency", "Other");
+        comb.setItems(list);
+
 
     }
+    public String c;
     public void setUserInformation(String username){
-
-        label_welcome.setText("Welcome " + username + "!");
+        c = username;
+        label_welcome.setText("Welcome back " + username + "!");
     }
+
 }

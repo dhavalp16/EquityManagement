@@ -36,7 +36,7 @@
         <TextField fx:id="tf_ci_pamount" layoutX="202.0" layoutY="150.0" prefHeight="26.0" prefWidth="213.0" style="-fx-border-color: #4c00b0;" />
         <TextField fx:id="tf_ci_time" layoutX="202.0" layoutY="188.0" prefHeight="26.0" prefWidth="213.0" style="-fx-border-color: #4c00b0;" />
         <TextField fx:id="tf_ci_irate" layoutX="202.0" layoutY="223.0" prefHeight="26.0" prefWidth="213.0" style="-fx-border-color: #4c00b0;" />
-        <Button fx:id="btn_ci_calculate" layoutX="107.0" layoutY="282.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #4c00b0;" text="Calculate" textFill="WHITE">
+        <Button fx:id="btn_ci_calculate" layoutX="107.0" layoutY="282.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Calculate" textFill="WHITE">
             <font>
                 <Font name="Calibri Bold" size="16.0" />
             </font>
@@ -72,7 +72,7 @@
             </font>
         </Label>
         <TextField fx:id="tf_cagr_time" layoutX="202.0" layoutY="482.0" prefHeight="26.0" prefWidth="213.0" style="-fx-border-color: #4c00b0;" />
-        <Button fx:id="btn_cagr_calculate" layoutX="103.0" layoutY="545.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #4c00b0;" text="Calculate" textFill="WHITE">
+        <Button fx:id="btn_cagr_calculate" layoutX="103.0" layoutY="545.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Calculate" textFill="WHITE">
             <font>
                 <Font name="Calibri Bold" size="16.0" />
             </font>
@@ -126,7 +126,7 @@
                 <Font name="Calibri Bold" size="20.0" />
             </font>
         </Label>
-        <Button fx:id="btn_mc_calculate" layoutX="656.0" layoutY="321.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #4c00b0;" text="Calculate" textFill="WHITE">
+        <Button fx:id="btn_mc_calculate" layoutX="656.0" layoutY="321.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Calculate" textFill="WHITE">
             <font>
                 <Font name="Calibri Bold" size="16.0" />
             </font>
@@ -161,7 +161,7 @@
                 <Font name="Calibri Bold Italic" size="16.0" />
             </font>
         </Label>
-        <Button fx:id="btn_calculator_back" layoutX="786.0" layoutY="25.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #ffffff;" text="Back" textFill="#4c00b0">
+        <Button fx:id="btn_calculator_back" layoutX="786.0" layoutY="25.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #ffffff; -fx-cursor: hand;" text="Back" textFill="#4c00b0">
             <font>
                 <Font name="Calibri Bold" size="16.0" />
             </font>
