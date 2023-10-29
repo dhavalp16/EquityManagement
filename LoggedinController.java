@@ -15,14 +15,6 @@ import java.util.ResourceBundle;
 
 public class LoggedinController implements Initializable {
 
-    public void setUserInformation(String username){
-        c = username;
-        label_welcome.setText("Welcome back " + username + "!");
-        listM = getDatausers();
-        table.setItems(listM);
-    }
-
-
     @FXML
     private Button button_home;
     @FXML
@@ -55,9 +47,10 @@ public class LoggedinController implements Initializable {
     private ComboBox comb;
 
     public String s;
+
     @FXML
-    void Select(ActionEvent event){
-         s = comb.getSelectionModel().getSelectedItem().toString();
+    void Select(ActionEvent event) {
+        s = comb.getSelectionModel().getSelectedItem().toString();
     }
 
     ObservableList<User> listM;
@@ -65,7 +58,6 @@ public class LoggedinController implements Initializable {
     Connection connection = null;
     ResultSet resultSet = null;
     PreparedStatement preparedStatement = null;
-
 
 
     @Override
@@ -80,26 +72,26 @@ public class LoggedinController implements Initializable {
         button_home.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "Loggedin.fxml", "Home", c);
+                DBUtils.changeScene(event, "Loggedin.fxml", "Home", null);
             }
         });
         button_calculator.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event,"calculator.fxml","Calculator",null);
+                DBUtils.changeScene(event, "calculator.fxml", "Calculator", null);
             }
         });
         button_equity.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event,"Profile.fxml","Profile",null);
+                DBUtils.changeScene(event, "Profile.fxml", "Profile", null);
             }
         });
 
         button_add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.addInfo(c, tf_equityname.getText() ,Integer.parseInt(tf_amount.getText()),s);
+                DBUtils.addInfo(c, tf_equityname.getText(), Integer.parseInt(tf_amount.getText()), s);
                 DBUtils.changeScene(event, "Loggedin.fxml", "Home", c);
             }
         });
@@ -108,7 +100,7 @@ public class LoggedinController implements Initializable {
         button_delete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.delInfo(c, tf_equityname.getText() ,Integer.parseInt(tf_amount.getText()),s);
+                DBUtils.delInfo(c, tf_equityname.getText(), Integer.parseInt(tf_amount.getText()), s);
                 DBUtils.changeScene(event, "Loggedin.fxml", "Home", c);
             }
         });
@@ -121,7 +113,16 @@ public class LoggedinController implements Initializable {
         category.setCellValueFactory(new PropertyValueFactory<User, String>("category"));
 
     }
+
     public String c;
+
+    public void setUserInformation(String username) {
+        c = username;
+        label_welcome.setText("Welcome back " + username + "!");
+        listM = getDatausers();
+        table.setItems(listM);
+    }
+
     public static Connection connectDB() {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/equiman", "root", "equity");
@@ -131,19 +132,20 @@ public class LoggedinController implements Initializable {
             return null;
         }
     }
-    public  ObservableList<User> getDatausers(){
+
+    public ObservableList<User> getDatausers() {
 
         Connection connection = connectDB();
         ObservableList<User> list = FXCollections.observableArrayList();
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM equity WHERE username = ?");
-            preparedStatement.setString(1,c);
+            preparedStatement.setString(1, c);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
-                list.add(new User(resultSet.getString("equity"),Integer.parseInt(resultSet.getString("amount")) ,resultSet.getString("category")));
+            while (resultSet.next()) {
+                list.add(new User(resultSet.getString("equity"), Integer.parseInt(resultSet.getString("amount")), resultSet.getString("category")));
             }
-        }catch (SQLException e ){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return list;

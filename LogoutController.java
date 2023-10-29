@@ -11,6 +11,9 @@ import java.util.ResourceBundle;
 
 public class LogoutController implements Initializable {
 
+    UserHolder holder = UserHolder.getInstance();
+    User u = holder.getUser();
+    String name = u.getName();
     @FXML
     private Button button_log_out;
     @FXML
@@ -28,7 +31,7 @@ public class LogoutController implements Initializable {
         button_back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "Loggedin.fxml", "Home", null);
+                DBUtils.changeScene(event, "Loggedin.fxml", "Home", name);
             }
         });
     }

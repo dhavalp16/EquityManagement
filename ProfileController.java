@@ -29,10 +29,15 @@ public class ProfileController implements Initializable {
     public String y;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        UserHolder holder = UserHolder.getInstance();
+        User u = holder.getUser();
+        String name = u.getName();
+
         btn_back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event,"Loggedin.fxml","Welcome!",null);
+                DBUtils.changeScene(event,"Loggedin.fxml","Welcome!",name);
             }
         });
         btn_acc_delete.setOnAction(new EventHandler<ActionEvent>() {

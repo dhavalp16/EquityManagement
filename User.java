@@ -1,8 +1,12 @@
 package com.example.demo;
 
 public class User {
-    int  amount;
+    int amount;
     String name, category;
+
+    public User(String name) {
+        this.name = name;
+    }
 
     public User( String name, int amount, String category) {
         this.amount = amount;

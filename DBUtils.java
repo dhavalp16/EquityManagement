@@ -3,7 +3,6 @@ package com.example.demo;
 import java.sql.*;
 
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -16,8 +15,6 @@ import java.io.IOException;
 
 public class DBUtils {
 
-
-
     public static void changeScene(ActionEvent event, String fxmlFile, String title, String username) {
         Parent root = null;
 
@@ -28,7 +25,12 @@ public class DBUtils {
                 LoggedinController loggedinController = loader.getController();
                 loggedinController.setUserInformation(username);
 
+                UserHolder holder = UserHolder.getInstance();
+                User user = new User(username);
+                user.setName(username);
+                holder.setUser(user);
 
+                // Step 4
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -159,7 +161,8 @@ public class DBUtils {
             }
         }
     }
-    public static void addInfo(String username, String equity, int amount, String category){
+
+    public static void addInfo(String username, String equity, int amount, String category) {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -172,39 +175,39 @@ public class DBUtils {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, equity);
             preparedStatement.setInt(3, amount);
-            preparedStatement.setString(4,category);
+            preparedStatement.setString(4, category);
             preparedStatement.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
 
             e.printStackTrace();
 
-        }finally {
-            if(resultSet!=null){
-                try{
+        } finally {
+            if (resultSet != null) {
+                try {
                     resultSet.close();
-                }catch(SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
-            if(preparedStatement!=null){
+            if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
-            if(connection!=null){
+            if (connection != null) {
                 try {
                     connection.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
 
-    public static void delInfo(String username, String equity, int amount, String category){
+    public static void delInfo(String username, String equity, int amount, String category) {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -217,39 +220,39 @@ public class DBUtils {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, equity);
             preparedStatement.setInt(3, amount);
-            preparedStatement.setString(4,category);
+            preparedStatement.setString(4, category);
             preparedStatement.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
 
             e.printStackTrace();
 
-        }finally {
-            if(resultSet!=null){
-                try{
+        } finally {
+            if (resultSet != null) {
+                try {
                     resultSet.close();
-                }catch(SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
-            if(preparedStatement!=null){
+            if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
-            if(connection!=null){
+            if (connection != null) {
                 try {
                     connection.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
         }
     }
 
-    public static void delAcc(String username){
+    public static void delAcc(String username) {
 
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -266,29 +269,29 @@ public class DBUtils {
 
             preparedStatement.executeUpdate();
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
 
             e.printStackTrace();
 
-        }finally {
-            if(resultSet!=null){
-                try{
+        } finally {
+            if (resultSet != null) {
+                try {
                     resultSet.close();
-                }catch(SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
-            if(preparedStatement!=null){
+            if (preparedStatement != null) {
                 try {
                     preparedStatement.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }
-            if(connection!=null){
+            if (connection != null) {
                 try {
                     connection.close();
-                }catch (SQLException e){
+                } catch (SQLException e) {
                     e.printStackTrace();
                 }
             }

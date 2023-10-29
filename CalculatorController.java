@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 
 public class CalculatorController implements Initializable {
 
@@ -75,10 +76,15 @@ public class CalculatorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        UserHolder holder = UserHolder.getInstance();
+        User u = holder.getUser();
+        String name = u.getName();
+
         btn_calculator_back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event,"Loggedin.fxml","Welcome!",null);
+                DBUtils.changeScene(event,"Loggedin.fxml","Welcome!",name);
             }
         });
 
