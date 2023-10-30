@@ -16,19 +16,19 @@ import java.util.ResourceBundle;
 public class LoggedinController implements Initializable {
 
     @FXML
-    private Button button_home;
+    private Button btn_home;
     @FXML
-    private Button button_calculator;
+    private Button btn_calculator;
     @FXML
-    private Button button_equity;
+    private Button btn_equity;
     @FXML
-    private Button button_logout;
+    private Button btn_logout;
     @FXML
-    private Button button_add;
+    private Button btn_add;
     @FXML
-    private Button button_delete;
+    private Button btn_delete;
     @FXML
-    private Button button_update;
+    private Button btn_update;
     @FXML
     private Label label_welcome;
     @FXML
@@ -55,40 +55,35 @@ public class LoggedinController implements Initializable {
 
     ObservableList<User> listM;
 
-    Connection connection = null;
-    ResultSet resultSet = null;
-    PreparedStatement preparedStatement = null;
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        button_logout.setOnAction(new EventHandler<ActionEvent>() {
+        btn_logout.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "Logout.fxml", "Logout", null);
             }
         });
-        button_home.setOnAction(new EventHandler<ActionEvent>() {
+        btn_home.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "Loggedin.fxml", "Home", null);
+                DBUtils.changeScene(event, "Loggedin.fxml", "Home", c);
             }
         });
-        button_calculator.setOnAction(new EventHandler<ActionEvent>() {
+        btn_calculator.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "calculator.fxml", "Calculator", null);
             }
         });
-        button_equity.setOnAction(new EventHandler<ActionEvent>() {
+        btn_equity.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "Profile.fxml", "Profile", null);
             }
         });
 
-        button_add.setOnAction(new EventHandler<ActionEvent>() {
+        btn_add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.addInfo(c, tf_equityname.getText(), Integer.parseInt(tf_amount.getText()), s);
@@ -96,8 +91,7 @@ public class LoggedinController implements Initializable {
             }
         });
 
-
-        button_delete.setOnAction(new EventHandler<ActionEvent>() {
+        btn_delete.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.delInfo(c, tf_equityname.getText(), Integer.parseInt(tf_amount.getText()), s);

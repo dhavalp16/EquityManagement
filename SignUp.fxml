@@ -49,17 +49,12 @@
                     <font>
                         <Font name="Calibri" size="14.0" />
                     </font></TextField>
-                <TextField fx:id="tf_pass_word" layoutX="182.0" layoutY="262.0" prefHeight="25.0" prefWidth="250.0" style="-fx-border-color: #4c00b0;">
-                    <font>
-                        <Font name="Calibri" size="14.0" />
-                    </font>
-                </TextField>
                 <TextField fx:id="tf_age" layoutX="182.0" layoutY="302.0" prefHeight="25.0" prefWidth="250.0" style="-fx-border-color: #4c00b0;">
                     <font>
                         <Font name="Calibri" size="14.0" />
                     </font>
                 </TextField>
-                <Button fx:id="button_sign_up" layoutX="209.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Sign-Up" textFill="WHITE">
+                <Button fx:id="btn_sign_up" layoutX="209.0" layoutY="362.0" mnemonicParsing="false" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Sign-Up" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="18.0" />
                     </font></Button>
@@ -73,10 +68,15 @@
                         <Font name="Calibri Italic" size="14.0" />
                     </font>
                 </Label>
-                <Button fx:id="button_log_in" layoutX="269.0" layoutY="425.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Login" textFill="#4c00b0" underline="true">
+                <Button fx:id="btn_log_in" layoutX="269.0" layoutY="425.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Login" textFill="#4c00b0" underline="true">
                     <font>
                         <Font name="Calibri Bold Italic" size="14.0" />
                     </font></Button>
+            <PasswordField fx:id="tf_pass_word" layoutX="182.0" layoutY="261.0" prefHeight="29.0" prefWidth="250.0" style="-fx-border-color: #4c00b0;">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </PasswordField>
             </children></AnchorPane>
         <AnchorPane prefHeight="600.0" prefWidth="210.0" style="-fx-border-color: #4c00b0; -fx-border-width: 1;">
             <children>

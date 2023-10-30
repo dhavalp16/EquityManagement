@@ -12,42 +12,42 @@
                     <columns>
                         <TableColumn fx:id="name" prefWidth="391.0" text="Name" />
                         <TableColumn fx:id="amount" prefWidth="240.0" text="Amount Invested" />
-                        <TableColumn fx:id="category" prefWidth="167.0" text="Category" />
+                        <TableColumn fx:id="category" prefWidth="228.0" text="Category" />
                     </columns>
                 </TableView>
-                <Button fx:id="button_delete" layoutX="768.0" layoutY="99.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: #ca0B00; -fx-cursor: hand;" text="DELETE" textFill="WHITE">
+                <Button fx:id="btn_delete" layoutX="768.0" layoutY="99.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: #ca0B00; -fx-cursor: hand;" text="DELETE" textFill="WHITE">
                     <font>
                         <Font name="Calibri Bold Italic" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_add" layoutX="643.0" layoutY="99.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: #5BC236; -fx-cursor: hand;" text="ADD" textFill="WHITE">
+                <Button fx:id="btn_add" layoutX="643.0" layoutY="99.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: #5BC236; -fx-cursor: hand;" text="ADD" textFill="WHITE">
                     <font>
                         <Font name="Calibri Bold Italic" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_update" layoutX="518.0" layoutY="99.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: #eeca23; -fx-cursor: hand;" text="UPDATE" textFill="WHITE">
+                <Button fx:id="btn_update" layoutX="518.0" layoutY="99.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="112.0" style="-fx-background-color: #eeca23; -fx-cursor: hand;" text="UPDATE" textFill="WHITE">
                     <font>
                         <Font name="Calibri Bold Italic" size="14.0" />
                     </font>
                 </Button>
                 <HBox prefHeight="40.0" prefWidth="900.0" style="-fx-background-color: #4c00b0;">
                     <children>
-                        <Button fx:id="button_home" mnemonicParsing="false" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Home" textFill="WHITE">
+                        <Button fx:id="btn_home" mnemonicParsing="false" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Home" textFill="WHITE">
                             <font>
                                 <Font name="Calibri Bold Italic" size="18.0" />
                             </font>
                         </Button>
-                        <Button fx:id="button_calculator" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Calculator" textFill="WHITE">
+                        <Button fx:id="btn_calculator" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Calculator" textFill="WHITE">
                             <font>
                                 <Font name="Calibri Bold Italic" size="18.0" />
                             </font>
                         </Button>
-                        <Button fx:id="button_equity" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Equity" textFill="WHITE">
+                        <Button fx:id="btn_equity" mnemonicParsing="false" prefHeight="30.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Equity" textFill="WHITE">
                             <font>
                                 <Font name="Calibri Bold Italic" size="18.0" />
                             </font>
                         </Button>
-                        <Button fx:id="button_logout" mnemonicParsing="false" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Logout" textFill="WHITE">
+                        <Button fx:id="btn_logout" mnemonicParsing="false" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Logout" textFill="WHITE">
                             <font>
                                 <Font name="Calibri Bold Italic" size="18.0" />
                             </font>

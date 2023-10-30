@@ -62,7 +62,7 @@ public class DBUtils {
             if (resultSet.isBeforeFirst()) {
                 System.out.println("User already exists!");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("You cannot use this username.");
+                alert.setContentText("You cannot use this username. User already exists!");
                 alert.show();
             } else {
                 psInsert = connection.prepareStatement("INSERT INTO user_info(username, password, age) VALUES (? , ? , ?)");
@@ -106,7 +106,6 @@ public class DBUtils {
             }
         }
     }
-
     public static void logInUser(ActionEvent event, String username, String password) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
@@ -120,7 +119,7 @@ public class DBUtils {
             if (!resultSet.isBeforeFirst()) {
                 System.out.println("User not found in the database!");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Provided credentials are incorrect!");
+                alert.setContentText("User not found in the database!");
                 alert.show();
             } else {
                 while (resultSet.next()) {
@@ -130,7 +129,7 @@ public class DBUtils {
                     } else {
                         System.out.println("Incorrect password!");
                         Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Provided credentials are incorrect!");
+                        alert.setContentText("Incorrect password!");
                         alert.show();
                     }
                 }
@@ -161,7 +160,6 @@ public class DBUtils {
             }
         }
     }
-
     public static void addInfo(String username, String equity, int amount, String category) {
 
         Connection connection = null;
@@ -206,7 +204,6 @@ public class DBUtils {
             }
         }
     }
-
     public static void delInfo(String username, String equity, int amount, String category) {
 
         Connection connection = null;
@@ -268,6 +265,7 @@ public class DBUtils {
             preparedStatement1.setString(1, username);
 
             preparedStatement.executeUpdate();
+            preparedStatement1.executeUpdate();
 
         } catch (SQLException e) {
 

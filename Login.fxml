@@ -43,12 +43,7 @@
                         <Font name="Calibri" size="14.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="tf_password" layoutX="307.0" layoutY="223.0" prefHeight="25.0" prefWidth="190.0" style="-fx-border-color: #4c00b0;">
-                    <font>
-                        <Font name="Calibri" size="14.0" />
-                    </font>
-                </TextField>
-                <Button fx:id="button_login" layoutX="298.0" layoutY="275.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="111.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Login" textFill="WHITE">
+                <Button fx:id="btn_login" layoutX="298.0" layoutY="275.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="111.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Login" textFill="WHITE">
                     <font>
                         <Font name="Calibri" size="18.0" />
                     </font>
@@ -58,7 +53,7 @@
                         <Font name="Calibri Italic" size="14.0" />
                     </font>
                 </Label>
-                <Button fx:id="button_signup" layoutX="378.0" layoutY="342.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="SignUp!" textFill="#4c00b0" underline="true">
+                <Button fx:id="btn_signup" layoutX="378.0" layoutY="342.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="SignUp!" textFill="#4c00b0" underline="true">
                     <font>
                         <Font name="Calibri Bold Italic" size="14.0" />
                     </font>
@@ -82,6 +77,10 @@
                 <ImageView fitHeight="29.0" fitWidth="111.0" layoutX="298.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true" />
                 <Line endX="520.0" layoutX="143.0" layoutY="538.0" startX="-100.0" />
                 <Line endX="520.0" layoutX="143.0" layoutY="389.0" startX="-100.0" />
+            <PasswordField fx:id="tf_password" layoutX="307.0" layoutY="223.0" prefHeight="29.0" prefWidth="190.0" style="-fx-border-color: #4c00b0;">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font></PasswordField>
             </children></AnchorPane>
     </children>
 </HBox>

@@ -4,24 +4,18 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 
 import java.net.URL;
-import java.sql.*;
 import java.util.ResourceBundle;
 
-public class ProfileController implements Initializable {
+public class DeleteAccount implements Initializable {
 
     @FXML
-    private Button btn_back;
+    private Button btn_del_acc;
     @FXML
-    private Label label_pf_name;
-    @FXML
-    private Label label_pf_age;
-    @FXML
-    private Button btn_acc_delete;
-
+    private Button btn_no;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -29,21 +23,22 @@ public class ProfileController implements Initializable {
         User u = holder.getUser();
         String name = u.getName();
 
-        btn_back.setOnAction(new EventHandler<ActionEvent>() {
+        btn_no.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "Loggedin.fxml", "Welcome!", name);
+                DBUtils.changeScene(event,"Profile.fxml","Welcome!",null);
             }
         });
-        btn_acc_delete.setOnAction(new EventHandler<ActionEvent>() {
+        btn_del_acc.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "DeleteAccount.fxml", "So Long :(", null);
+                DBUtils.delAcc(name);
+                DBUtils.changeScene(event, "Login.fxml", "Welcome!", null);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Account Deleted Successfully!");
+                alert.show();
             }
         });
 
-        label_pf_name.setText("Name: " + name);
-        
     }
-
 }

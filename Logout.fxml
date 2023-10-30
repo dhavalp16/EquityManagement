@@ -14,11 +14,11 @@
                     <font>
                         <Font name="Comic Sans MS Bold Italic" size="28.0" />
                     </font></Label>
-                <Button fx:id="button_log_out" layoutX="274.0" layoutY="290.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Yes" textFill="WHITE">
+                <Button fx:id="btn_log_out" layoutX="274.0" layoutY="290.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Yes" textFill="WHITE">
                     <font>
                         <Font name="Comic Sans MS Bold" size="18.0" />
                     </font></Button>
-                <Button fx:id="button_back" layoutX="476.0" layoutY="290.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #4c00b0; -fx-cursor: hand;" text="No" textFill="#4c00b0">
+                <Button fx:id="btn_back" layoutX="476.0" layoutY="290.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #DDDDDD; -fx-border-color: #4c00b0; -fx-cursor: hand;" text="No" textFill="#4c00b0">
                     <font>
                         <Font name="Comic Sans MS Bold Italic" size="18.0" />
                     </font>

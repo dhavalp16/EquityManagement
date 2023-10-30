@@ -13,9 +13,9 @@ import java.util.ResourceBundle;
 
 public class SignUpController implements Initializable {
     @FXML
-    private Button button_log_in;
+    private Button btn_log_in;
     @FXML
-    private Button button_sign_up;
+    private Button btn_sign_up;
     @FXML
     private TextField tf_user_name;
     @FXML
@@ -27,7 +27,7 @@ public class SignUpController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        button_sign_up.setOnAction(new EventHandler<ActionEvent>() {
+        btn_sign_up.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 if(!tf_user_name.getText().trim().isEmpty() && !tf_pass_word.getText().trim().isEmpty() && !tf_age.getText().trim().isEmpty()){
@@ -40,7 +40,7 @@ public class SignUpController implements Initializable {
                 }
             }
         });
-        button_log_in.setOnAction(new EventHandler<ActionEvent>() {
+        btn_log_in.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "Login.fxml", "Login", null);

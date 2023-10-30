@@ -9,8 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ResourceBundle;
-import java.util.prefs.Preferences;
 
 public class CalculatorController implements Initializable {
 
@@ -77,6 +77,8 @@ public class CalculatorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        final DecimalFormat df = new DecimalFormat("0.0000");
+
         UserHolder holder = UserHolder.getInstance();
         User u = holder.getUser();
         String name = u.getName();
@@ -92,7 +94,7 @@ public class CalculatorController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 double a= calculateCompoundInterest(Double.parseDouble(tf_ci_pamount.getText()),Double.parseDouble(tf_ci_time.getText()),Double.parseDouble(tf_ci_irate.getText()));
-                label_ci_answer.setText(String.valueOf(a));
+                label_ci_answer.setText(" " + (df.format(a)));
             }
         });
 
@@ -100,7 +102,7 @@ public class CalculatorController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 double b = calculateCAGR(Double.parseDouble(tf_cagr_pamount.getText()),Double.parseDouble(tf_cagr_famount.getText()),Double.parseDouble(tf_cagr_time.getText()));
-                label_cagr_answer.setText(String.valueOf(b));
+                label_cagr_answer.setText(" " + (df.format(b)));
             }
         });
 
@@ -108,20 +110,20 @@ public class CalculatorController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 double c = calculateMortgage(Double.parseDouble(tf_mc_eprice.getText()),Double.parseDouble(tf_mc_dpayment.getText()),Double.parseDouble(tf_mc_lterm.getText()),Double.parseDouble(tf_mc_irate.getText()));
-                label_mc_mpayment.setText(String.valueOf(c));
+                label_mc_mpayment.setText(" " + (df.format(c)));
                 double d = calculateLoanAmount(Double.parseDouble(tf_mc_eprice.getText()),Double.parseDouble(tf_mc_dpayment.getText()));
-                label_mc_lamount.setText(String.valueOf(d));
+                label_mc_lamount.setText(" " + (df.format(d)));
                 double e = calculateDownPayment(Double.parseDouble(tf_mc_eprice.getText()),Double.parseDouble(tf_mc_dpayment.getText()));
-                label_mc_dpayment.setText(String.valueOf(e));
+                label_mc_dpayment.setText(" " + (df.format(e)));
                 double f = calculatePaymentTenure(Double.parseDouble(tf_mc_lterm.getText()));
-                label_mc_ptenure.setText(String.valueOf(f));
+                label_mc_ptenure.setText(" " + (df.format(f)));
             }
         });
 
     }
 
     public static double calculateCompoundInterest(Double principleAmount, Double time, Double interestRate){
-        double a,b,c,d,e,i;
+        double a,b;
         double finalAnswer;
 
         a = interestRate/100;
@@ -150,8 +152,6 @@ public class CalculatorController implements Initializable {
         double monthlyPayment = principalAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalNumberOfMonthlyPayments)) / (Math.pow(1 + monthlyInterestRate, totalNumberOfMonthlyPayments) - 1);
         return monthlyPayment;
     }
-
-
 
 
     public static double calculateLoanAmount(Double estatePrice, Double downPayment){

@@ -12,9 +12,9 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
     @FXML
-    private Button button_login;
+    private Button btn_login;
     @FXML
-    private Button button_signup;
+    private Button btn_signup;
     @FXML
     private TextField tf_username;
     @FXML
@@ -23,13 +23,13 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        button_login.setOnAction(new EventHandler<ActionEvent>() {
+        btn_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.logInUser(event, tf_username.getText(), tf_password.getText());
             }
         });
-        button_signup.setOnAction(new EventHandler<ActionEvent>() {
+        btn_signup.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "SignUp.fxml", "SignUp", null);
