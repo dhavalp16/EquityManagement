@@ -86,7 +86,7 @@ public class CalculatorController implements Initializable {
         btn_calculator_back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event,"Loggedin.fxml","Welcome!",name);
+                DBUtils.changeScene(event,"Loggedin.fxml","Home",name);
             }
         });
 

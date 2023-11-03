@@ -47,20 +47,27 @@
                                 <Font name="Calibri Bold Italic" size="18.0" />
                             </font>
                         </Button>
-                        <Button fx:id="btn_logout" mnemonicParsing="false" prefHeight="34.0" prefWidth="102.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Logout" textFill="WHITE">
-                            <font>
-                                <Font name="Calibri Bold Italic" size="18.0" />
-                            </font>
-                        </Button>
                     </children></HBox>
                 <Label fx:id="label_welcome" layoutX="27.0" layoutY="53.0" text="Welcome Back!">
                     <font>
                         <Font name="Comic Sans MS" size="24.0" />
                     </font>
                 </Label>
-                <TextField fx:id="tf_amount" layoutX="705.0" layoutY="57.0" prefHeight="27.0" prefWidth="175.0" promptText="Amount" style="-fx-border-color: #4c00b0;" />
+                <TextField fx:id="tf_amount" layoutX="705.0" layoutY="57.0" prefHeight="27.0" prefWidth="175.0" promptText="Amount(Rs.)" style="-fx-border-color: #4c00b0;">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font></TextField>
                 <TextField fx:id="tf_equityname" layoutX="518.0" layoutY="57.0" prefHeight="27.0" prefWidth="175.0" promptText="Equity name" style="-fx-border-color: #4c00b0;" />
             <ComboBox fx:id="comb" layoutX="330.0" layoutY="57.0" onAction="#Select" prefHeight="27.0" prefWidth="175.0" promptText="Category" style="-fx-background-color: #ffffff; -fx-cursor: hand; -fx-border-color: #4c00b0;" />
+            <HBox layoutX="796.0" prefHeight="40.0" prefWidth="100.0">
+               <children>
+                        <Button fx:id="btn_logout" mnemonicParsing="false" prefHeight="34.0" prefWidth="100.0" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Logout" textFill="WHITE">
+                            <font>
+                                <Font name="Calibri Bold Italic" size="18.0" />
+                            </font>
+                        </Button>
+               </children>
+            </HBox>
             </children></AnchorPane>
     </children>
 </HBox>

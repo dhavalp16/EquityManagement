@@ -26,7 +26,9 @@ public class LoginController implements Initializable {
         btn_login.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.logInUser(event, tf_username.getText(), tf_password.getText());
+                if(!tf_username.getText().trim().isEmpty() && !tf_password.getText().trim().isEmpty()) {
+                    DBUtils.logInUser(event, tf_username.getText(), tf_password.getText());
+                }
             }
         });
         btn_signup.setOnAction(new EventHandler<ActionEvent>() {

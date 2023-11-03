@@ -45,14 +45,12 @@ public class LoggedinController implements Initializable {
     private TextField tf_amount;
     @FXML
     private ComboBox comb;
-
-    public String s;
-
     @FXML
     void Select(ActionEvent event) {
         s = comb.getSelectionModel().getSelectedItem().toString();
     }
-
+    public String s;
+    public String c;
     ObservableList<User> listM;
 
     @Override
@@ -87,7 +85,8 @@ public class LoggedinController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.addInfo(c, tf_equityname.getText(), Integer.parseInt(tf_amount.getText()), s);
-                DBUtils.changeScene(event, "Loggedin.fxml", "Home", c);
+                listM = getDatausers();
+                table.setItems(listM);
             }
         });
 
@@ -95,28 +94,65 @@ public class LoggedinController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.delInfo(c, tf_equityname.getText(), Integer.parseInt(tf_amount.getText()), s);
-                DBUtils.changeScene(event, "Loggedin.fxml", "Home", c);
+                listM = getDatausers();
+                table.setItems(listM);
             }
         });
 
         ObservableList<String> list = FXCollections.observableArrayList("Stocks", "Mutual Funds", "Real Estate", "CryptoCurrency", "Other");
         comb.setItems(list);
-
         name.setCellValueFactory(new PropertyValueFactory<User, String>("Name"));
         amount.setCellValueFactory(new PropertyValueFactory<User, Integer>("Amount"));
         category.setCellValueFactory(new PropertyValueFactory<User, String>("category"));
 
+        table.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
+            @Override
+            public void handle(javafx.scene.input.MouseEvent event) {
+                User selectedUser = table.getSelectionModel().getSelectedItem();
+                if (selectedUser != null) {
+                    tf_equityname.setText(selectedUser.getName());
+                    tf_amount.setText(String.valueOf(selectedUser.getAmount()));
+                    comb.setValue(selectedUser.getCategory());
+                }
+            }
+        });
+
+        btn_update.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                User selectedUser = table.getSelectionModel().getSelectedItem();
+                if (selectedUser != null) {
+                    String updatedEquity = tf_equityname.getText();
+                    int updatedAmount = Integer.parseInt(tf_amount.getText());
+                    String updatedCategory = comb.getValue().toString();
+
+                    try {
+                        Connection connection = connectDB();
+                        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE equity SET equity = ?, amount = ?, category = ? WHERE username = ? AND equity = ? AND amount = ? AND category = ?");
+                        preparedStatement.setString(1, updatedEquity);
+                        preparedStatement.setInt(2, updatedAmount);
+                        preparedStatement.setString(3, updatedCategory);
+                        preparedStatement.setString(4, c);
+                        preparedStatement.setString(5, selectedUser.getName());
+                        preparedStatement.setInt(6, selectedUser.getAmount());
+                        preparedStatement.setString(7, selectedUser.getCategory());
+                        preparedStatement.executeUpdate();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                    listM = getDatausers();
+                    table.setItems(listM);
+                }
+            }
+        });
+
     }
-
-    public String c;
-
     public void setUserInformation(String username) {
         c = username;
         label_welcome.setText("Welcome back " + username + "!");
         listM = getDatausers();
         table.setItems(listM);
     }
-
     public static Connection connectDB() {
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/equiman", "root", "equity");
@@ -126,7 +162,6 @@ public class LoggedinController implements Initializable {
             return null;
         }
     }
-
     public ObservableList<User> getDatausers() {
 
         Connection connection = connectDB();

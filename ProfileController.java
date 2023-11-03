@@ -22,6 +22,8 @@ public class ProfileController implements Initializable {
     @FXML
     private Button btn_acc_delete;
 
+    public String retrievedage;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -32,7 +34,7 @@ public class ProfileController implements Initializable {
         btn_back.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                DBUtils.changeScene(event, "Loggedin.fxml", "Welcome!", name);
+                DBUtils.changeScene(event, "Loggedin.fxml", "Home", name);
             }
         });
         btn_acc_delete.setOnAction(new EventHandler<ActionEvent>() {
@@ -42,8 +44,31 @@ public class ProfileController implements Initializable {
             }
         });
 
-        label_pf_name.setText("Name: " + name);
-        
-    }
+        try{
+            Connection connection = connectDB();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT age FROM user_info WHERE username = ?");
+            preparedStatement.setString(1, name);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
+            if (resultSet.next()) {
+                retrievedage = resultSet.getString("age");
+            }
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+
+        label_pf_name.setText("Name: " + name);
+        label_pf_age.setText("Age: " + retrievedage);
+
+    }
+    public static Connection connectDB() {
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/equiman", "root", "equity");
+            return connection;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
