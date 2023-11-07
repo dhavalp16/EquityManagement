@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ReportController">
+   <children>
+      <HBox prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <AnchorPane prefHeight="600.0" prefWidth="370.0" style="-fx-border-color: #4c00b0; -fx-border-width: 2;">
+               <children>
+                  <BarChart fx:id="bar_chart" layoutX="40.0" layoutY="14.0" prefHeight="290.0" prefWidth="290.0">
+                    <xAxis>
+                      <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                      <NumberAxis side="LEFT" />
+                    </yAxis>
+                  </BarChart>
+                  <PieChart fx:id="pie_chart" layoutX="40.0" layoutY="296.0" prefHeight="290.0" prefWidth="290.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="label_highest_amount" prefHeight="600.0" prefWidth="530.0" style="-fx-border-color: #4c00b0; -fx-border-width: 2;">
+               <children>
+                  <Label fx:id="label_total_capital" layoutX="18.0" layoutY="182.0" text="Total capital invested:">
+                     <font>
+                        <Font name="Comic Sans MS" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_category_highest" layoutX="18.0" layoutY="230.0" text="Category wise highest investment:">
+                     <font>
+                        <Font name="Comic Sans MS" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_category_lowest" layoutX="18.0" layoutY="266.0" text="Category wise lowest investment:">
+                     <font>
+                        <Font name="Comic Sans MS" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_total_investments" layoutX="18.0" layoutY="149.0" text="Total number of investement:">
+                     <font>
+                        <Font name="Comic Sans MS" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_amt_highest" layoutX="19.0" layoutY="312.0" text="Amount wise highest investment:">
+                     <font>
+                        <Font name="Comic Sans MS" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_amt_lowest" layoutX="18.0" layoutY="347.0" text="Amount wise lowest investment:">
+                     <font>
+                        <Font name="Comic Sans MS" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_lhighest_amount" layoutX="19.0" layoutY="389.0" text="Highest amount invested in an equity:">
+                     <font>
+                        <Font name="Comic Sans MS" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label_lowest_amount" layoutX="18.0" layoutY="422.0" text="Lowest amount invested in an equity:">
+                     <font>
+                        <Font name="Comic Sans MS" size="16.0" />
+                     </font>
+                  </Label>
+                  <Line endX="429.0" layoutX="105.0" layoutY="140.0" startX="-105.0" stroke="#4c00b0" />
+                  <Line endX="429.0" layoutX="105.0" layoutY="217.0" startX="-105.0" stroke="#4c00b0" />
+                  <Line endX="429.0" layoutX="105.0" layoutY="301.0" startX="-104.0" startY="-1.0" stroke="#4c00b0" />
+                  <Line endX="429.0" layoutX="105.0" layoutY="381.0" startX="-105.0" stroke="#4c00b0" />
+                  <Line endX="425.0" layoutX="109.0" layoutY="459.0" startX="-109.0" stroke="#4c00b0" />
+                  <Button fx:id="btn_back" layoutX="441.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #4c00b0;" text="Back" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold Italic" size="16.0" />
+                     </font></Button>
+               </children>
+            </AnchorPane>
+         </children></HBox>
+   </children>
+</AnchorPane>

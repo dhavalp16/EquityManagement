@@ -1,48 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.ProfileController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="925.0" style="-fx-border-color: #4c00b0;">
+      <AnchorPane prefHeight="600.0" prefWidth="925.0" style="-fx-border-color: #4c00b0; -fx-border-width: 5;">
          <children>
-            <ImageView fitHeight="92.0" fitWidth="84.0" layoutX="795.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="92.0" fitWidth="84.0" layoutX="802.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@profile.png" />
                </image>
             </ImageView>
-            <Label fx:id="label_pf_name" layoutX="550.0" layoutY="41.0" prefHeight="28.0" prefWidth="221.0" text="Name:">
+            <Label fx:id="label_pf_name" layoutX="340.0" layoutY="213.0" prefHeight="28.0" prefWidth="221.0" text="Name:">
                <font>
                   <Font name="Comic Sans MS Italic" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btn_acc_delete" layoutX="634.0" layoutY="165.0" mnemonicParsing="false" style="-fx-background-color: #ca0B00; -fx-cursor: hand;" text="Delete Account" textFill="WHITE">
+            <Button fx:id="btn_acc_delete" layoutX="629.0" layoutY="53.0" mnemonicParsing="false" style="-fx-background-color: #ca0B00; -fx-cursor: hand;" text="Delete Account" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold Italic" size="16.0" />
                </font>
             </Button>
-            <PieChart layoutX="511.0" layoutY="233.0" prefHeight="338.0" prefWidth="368.0" style="-fx-border-color: #000000;" title="PieChart" />
-            <BarChart layoutX="36.0" layoutY="233.0" prefHeight="338.0" prefWidth="431.0" style="-fx-border-color: #000000;">
-               <xAxis>
-                  <CategoryAxis side="BOTTOM" />
-               </xAxis>
-               <yAxis>
-                  <NumberAxis side="LEFT" />
-               </yAxis>
-            </BarChart>
-            <Line endX="783.0999755859375" layoutX="110.0" layoutY="211.0" startX="403.5999755859375" stroke="#4c00b0" strokeLineCap="ROUND" strokeLineJoin="ROUND" />
-            <Line endX="105.0999755859375" endY="119.5" layoutX="408.0" layoutY="91.0" startX="105.0999755859375" startY="-84.30000305175781" stroke="#4c00b0" strokeLineCap="ROUND" strokeLineJoin="ROUND" />
-            <Label fx:id="label_pf_age" layoutX="550.0" layoutY="76.0" prefHeight="28.0" prefWidth="221.0" text="Age:">
+            <Label fx:id="label_pf_age" layoutX="340.0" layoutY="286.0" prefHeight="28.0" prefWidth="221.0" text="Age:">
                <font>
                   <Font name="Comic Sans MS Italic" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btn_back" layoutX="24.0" layoutY="25.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Back" textFill="WHITE">
+            <Button fx:id="btn_back" layoutX="24.0" layoutY="25.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="85.0" style="-fx-background-color: #4c00b0; -fx-cursor: hand;" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold Italic" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_acc_editprofile" layoutX="493.0" layoutY="53.0" mnemonicParsing="false" style="-fx-background-color: #eeca23; -fx-cursor: hand;" text="Edit Account" textFill="WHITE">
                <font>
                   <Font name="Calibri Bold Italic" size="16.0" />
                </font>

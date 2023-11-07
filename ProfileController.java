@@ -21,6 +21,8 @@ public class ProfileController implements Initializable {
     private Label label_pf_age;
     @FXML
     private Button btn_acc_delete;
+    @FXML
+    private Button btn_acc_editprofile;
 
     public String retrievedage;
 
@@ -41,6 +43,12 @@ public class ProfileController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 DBUtils.changeScene(event, "DeleteAccount.fxml", "So Long :(", null);
+            }
+        });
+        btn_acc_editprofile.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                DBUtils.changeScene(event, "EditProfile.fxml", "Edit Profile", null);
             }
         });
 

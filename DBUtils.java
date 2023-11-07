@@ -81,13 +81,13 @@ public class DBUtils {
                     alert.setContentText("Password must be at least 8 characters long with at least one uppercase letter, one lowercase letter, and one special character!");
                     alert.show();
                 }else {
-                psInsert = connection.prepareStatement("INSERT INTO user_info(username, password, age) VALUES (? , ? , ?)");
-                psInsert.setString(1, username);
-                psInsert.setString(2, password);
-                psInsert.setInt(3, age);
-                psInsert.executeUpdate();
+                    psInsert = connection.prepareStatement("INSERT INTO user_info(username, password, age) VALUES (? , ? , ?)");
+                    psInsert.setString(1, username);
+                    psInsert.setString(2, password);
+                    psInsert.setInt(3, age);
+                    psInsert.executeUpdate();
 
-                changeScene(event, "Loggedin.fxml", "Welcome!", username);
+                    changeScene(event, "Loggedin.fxml", "Welcome!", username);
                 }
             }
         } catch (SQLException e) {
@@ -354,7 +354,121 @@ public class DBUtils {
         }
         return isDeleted;
     }
-}
+    public static void changePassword(String username, String oldPassword, String newPassword) {
+        Connection connection = null;
+        PreparedStatement psGetPassword = null;
+        PreparedStatement psUpdate = null;
+        ResultSet resultSet = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/equiman", "root", "equity");
+            psGetPassword = connection.prepareStatement("SELECT password FROM user_info WHERE username = ?");
+            psGetPassword.setString(1, username);
+            resultSet = psGetPassword.executeQuery();
 
+            if (resultSet.next()) {
+                String retrievedPassword = resultSet.getString("password");
+                if (retrievedPassword.equals(oldPassword)) {
+                    psUpdate = connection.prepareStatement("UPDATE user_info SET password = ? WHERE username = ?");
+                    psUpdate.setString(1, newPassword);
+                    psUpdate.setString(2, username);
+                    psUpdate.executeUpdate();
+
+                    System.out.println("Password updated successfully!");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setContentText("Password updated successfully!");
+                    alert.show();
+                } else {
+                    System.out.println("Incorrect old password!");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Incorrect old password!");
+                    alert.show();
+                }
+            } else {
+                System.out.println("User not found in the database!");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("User not found in the database!");
+                alert.show();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (psGetPassword != null) {
+                try {
+                    psGetPassword.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (psUpdate != null) {
+                try {
+                    psUpdate.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    public static double calculateCompoundInterest(Double principleAmount, Double time, Double interestRate){
+        double a,b;
+        double finalAnswer;
+
+        a = interestRate/100;
+        b = 1 + a;
+
+        finalAnswer = principleAmount*Math.pow(b,time);
+
+        return finalAnswer  ;
+    }
+    public static double calculateCAGR(Double principleAmount, Double finalAmount, Double time){
+        double a,b,c,d;
+        a = finalAmount/principleAmount;
+        c = 1/time;
+        b = Math.pow(a,c);
+        d = b -1;
+
+        return  d*100;
+    }
+    public static double calculateMortgage(Double estatePrice, Double downPaymentPercentage, Double loanTermYears, Double annualInterestRate) {
+        double downPaymentAmount = (downPaymentPercentage / 100) * estatePrice;
+        double principalAmount = estatePrice - downPaymentAmount;
+        double monthlyInterestRate = (annualInterestRate / 100) / 12;
+        double totalNumberOfMonthlyPayments = loanTermYears * 12;
+        double monthlyPayment = principalAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalNumberOfMonthlyPayments)) / (Math.pow(1 + monthlyInterestRate, totalNumberOfMonthlyPayments) - 1);
+        return monthlyPayment;
+    }
+    public static double calculateLoanAmount(Double estatePrice, Double downPayment){
+        Double a,b,c;
+        b = downPayment/100;
+        a = estatePrice*b;
+        c = estatePrice - a;
+
+        return c;
+    }
+    public static double calculateDownPayment(Double estatePrice, Double downPayment){
+        Double a,b;
+        b = downPayment/100;
+        a = estatePrice*b;
+        return a;
+    }
+    public static double calculatePaymentTenure(Double loanTerm){
+        Double a;
+        a = loanTerm*12;
+        return a;
+    }
+}
 
 

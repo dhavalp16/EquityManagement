@@ -32,6 +32,8 @@ public class LoggedinController implements Initializable {
     @FXML
     private Label label_welcome;
     @FXML
+    private Button btn_report;
+    @FXML
     private TableView<User> table;
     @FXML
     private TableColumn<User, Integer> amount;
@@ -80,6 +82,10 @@ public class LoggedinController implements Initializable {
                 DBUtils.changeScene(event, "Profile.fxml", "Profile", null);
             }
         });
+        btn_report.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) { DBUtils.changeScene(event,"Report.fxml","Diversity Report",null);}
+        });
 
         btn_add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -98,6 +104,8 @@ public class LoggedinController implements Initializable {
                 table.setItems(listM);
             }
         });
+
+
 
         ObservableList<String> list = FXCollections.observableArrayList("Stocks", "Mutual Funds", "Real Estate", "CryptoCurrency", "Other");
         comb.setItems(list);
